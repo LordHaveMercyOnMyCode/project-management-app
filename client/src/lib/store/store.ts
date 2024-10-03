@@ -14,7 +14,7 @@ import {
 } from "redux-persist";
 import createWebStorage from "redux-persist/lib/storage/createWebStorage";
 import globalReducer from "./state/index";
-// iimport { api } from "@/state/api";
+import { api } from "./state/api";
 import { setupListeners } from "@reduxjs/toolkit/query";
 
 // For SSR
@@ -45,7 +45,7 @@ const persistConfig = {
 };
 const rootReducer = combineReducers({
   global: globalReducer,
-  //   [api.reducerPath]: api.reducer,
+  [api.reducerPath]: api.reducer,
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

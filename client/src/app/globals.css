@@ -5,14 +5,14 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html,
 body,
 #root,
 .app {
-    width: 100%;
-    height: 100%;
-    @apply text-sm bg-gray-500 text-gray-900;
+  width: 100%;
+  height: 100%;
+  @apply bg-white text-sm dark:bg-black;
 }

@@ -10,7 +10,6 @@ import {
   Home,
   Layers3,
   LockIcon,
-  LucideIcon,
   Search,
   Settings,
   ShieldAlert,
@@ -19,17 +18,20 @@ import {
   X,
 } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import SidebarLink from "./SidebarLink";
 import { projects } from "@/assets/fakedata";
+import { useAppDispatch, useAppSelector } from "@/lib/store/store";
+import { setIsSidebarCollapsed } from "@/lib/store/state";
 
 const Sidebar = () => {
-  const [showProjects, setShowProjects] = useState(true);
-  const [showPriority, setShowPriority] = useState(true);
+  const [showProjects, setShowProjects] = useState(false);
+  const [showPriority, setShowPriority] = useState(false);
 
-  const isSidebarCollapsed = false;
+  const dispatch = useAppDispatch();
+  const isSidebarCollapsed = useAppSelector(
+    (state) => state.global.isSidebarCollapsed,
+  );
   const profilepic =
     "https://imgs.search.brave.com/ry6KvTiHmjjX7a0CqfC5zcrrn3o4Njaq46zrdyznPXs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvc2Fk/LWJsb25kLWN1dGUt/YW5pbWUtZ2lybC1w/ZnAtaGNiem5leTdi/cGFvZmQxay5qcGc";
 
@@ -38,7 +40,7 @@ const Sidebar = () => {
   };
 
   const sidebarClassNames = `fixed flex flex-col h-[100%] justify-between shadow-xl
-      transition-all duration-300 h-full z-40 dark:bg-black overflow-y-auto bg-white
+      h-full z-40 dark:bg-black overflow-y-auto bg-white
       ${isSidebarCollapsed ? "w-0 hidden" : "w-64"}
     `;
   return (
@@ -50,7 +52,12 @@ const Sidebar = () => {
             AKLIST
           </div>
           {isSidebarCollapsed ? null : (
-            <button className="py-3">
+            <button
+              className="py-3"
+              onClick={() =>
+                dispatch(setIsSidebarCollapsed(!isSidebarCollapsed))
+              }
+            >
               <X className="h-6 w-6 text-gray-800 hover:text-gray-500 dark:text-white" />
             </button>
           )}
