@@ -1,0 +1,23 @@
+GET http://localhost:8000 HTTP/1.1
+
+###
+
+GET http://localhost:8000/projects HTTP/1.1
+
+###
+
+POST http://localhost:8000/projects HTTP/1.1
+content-type: application/json
+
+{
+    "name": "NewProject",
+    "description": "A test project",
+    "startDate": "2024-10-04T00:00:00.000Z",
+    "endDate": "2024-12-31T00:00:00.000Z"
+}
+
+### GET Tasks
+
+GET http://localhost:8000/tasks?projectId=5 HTTP/1.1
+
+

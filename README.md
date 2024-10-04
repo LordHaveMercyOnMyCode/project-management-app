@@ -23,3 +23,26 @@ npm install @mui/material @emotion/react @emotion/styled @mui/x-data-grid lucide
 ```bash
 npm i -D @types/node @types/uuid @types/numeral
 ```
+
+`server`
+
+```bash
+npm i express body-parser cors dotenv helmet morgan prisma @prisma/client
+```
+
+```bash
+npm i -D ts-node typescript @types/node
+```
+
+```bash
+npm i -D rimraf concurrently nodemon @types/cors @types/express @types/morgan
+```
+
+// command to fix the autoincrement in postgresql
+
+```sql
+SELECT setval(pg_get_serial_sequence('"[DATA_MODEL_NAME_HERE]"', 'id'), coalesce(max(id)+1, 1), false) FROM "[DATA_MODEL_NAME_HERE]";
+
+
+SELECT setval(pg_get_serial_sequence('"Project"', 'id'), coalesce(max(id)+1, 1), false) FROM "Project";
+```
