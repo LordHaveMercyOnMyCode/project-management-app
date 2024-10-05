@@ -20,14 +20,15 @@ import {
 import Image from "next/image";
 import React, { useState } from "react";
 import SidebarLink from "./SidebarLink";
-import { projects } from "@/assets/fakedata";
 import { useAppDispatch, useAppSelector } from "@/lib/store/store";
 import { setIsSidebarCollapsed } from "@/lib/store/state";
+import { useGetProjectsQuery } from "@/lib/store/state/api";
 
 const Sidebar = () => {
   const [showProjects, setShowProjects] = useState(false);
   const [showPriority, setShowPriority] = useState(false);
 
+  const { data: projects } = useGetProjectsQuery();
   const dispatch = useAppDispatch();
   const isSidebarCollapsed = useAppSelector(
     (state) => state.global.isSidebarCollapsed,
