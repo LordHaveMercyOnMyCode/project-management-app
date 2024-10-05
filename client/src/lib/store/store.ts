@@ -41,7 +41,6 @@ const persistConfig = {
   key: "root",
   storage,
   whitelist: ["global"],
-  verion: 1,
 };
 const rootReducer = combineReducers({
   global: globalReducer,
@@ -58,7 +57,7 @@ export const makeStore = () => {
         serializableCheck: {
           ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
         },
-      }),
+      }).concat(api.middleware),
   });
 };
 
