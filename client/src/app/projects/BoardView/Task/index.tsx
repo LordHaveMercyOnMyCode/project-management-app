@@ -62,6 +62,7 @@ const Task = ({ task }: TaskProps) => {
           alt={task.attachments[0].fileName}
           width={400}
           height={200}
+          priority={true}
           className="h-auto w-full rounded-t-md"
         />
       )}
