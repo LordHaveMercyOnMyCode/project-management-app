@@ -4,6 +4,7 @@ import ModalNewTask from "@/components/ModalNewTask";
 import { useState } from "react";
 import ProjectHeader from "../ProjectHeader";
 import Board from "../BoardView";
+import List from "../ListView";
 
 type Props = {
   params: { id: string };
@@ -26,6 +27,10 @@ const Project = ({ params }: Props) => {
 
       {activeTab === "Board" && (
         <Board id={id} setIsModalNewTaskOpen={setIsModalNewTaskOpen} />
+      )}
+
+      {activeTab === "List" && (
+        <List id={id} setIsModalNewTaskOpen={setIsModalNewTaskOpen} />
       )}
     </section>
   );
