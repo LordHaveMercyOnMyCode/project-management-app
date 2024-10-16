@@ -1,7 +1,7 @@
 ## Project Management Application
 
-A application to manage your project using next.js , tailwind-css, redux toolkit in the front end and node.js, express.js
-prima and postgresql database at the backend.
+A application to manage your project, create team, groups, manage tasks and so more - using next.js , tailwind-css, redux toolkit in the front end and node.js, express.js
+prisma and postgresql database at the backend.
 
 `packages`
 
@@ -17,6 +17,8 @@ npm install @mui/material @emotion/react @emotion/styled @mui/x-data-grid lucide
 -   `recharts` : For charts
 -   `react-dnd react-dnd-html5-backend` : For complex drag and drop
 -   `gantt-task-react` : Interactive gantt charts
+
+<br>
 
 `dev dependencies`
 
