@@ -78,6 +78,10 @@ export const api = createApi({
   reducerPath: "api",
   tagTypes: ["Projects", "Tasks", "Users", "Teams"],
   endpoints: (build) => ({
+    getUsers: build.query<User[], void>({
+      query: () => "users",
+      providesTags: ["Users"],
+    }),
     getProjects: build.query<Project[], void>({
       query: () => "projects",
       providesTags: ["Projects"],
@@ -128,4 +132,5 @@ export const {
   useCreateTaskMutation,
   useUpdateTaskStatusMutation,
   useSearchQuery,
+  useGetUsersQuery,
 } = api;
