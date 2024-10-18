@@ -4,7 +4,9 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "imgs.search.brave.com",
+        hostname: "kaii-s3.s3.ap-south-1.amazonaws.com",
+        port: "",
+        pathname: "/**",
       },
       {
         protocol: "http",

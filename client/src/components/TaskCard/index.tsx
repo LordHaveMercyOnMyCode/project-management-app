@@ -16,7 +16,7 @@ const TaskCard = ({ task }: Props) => {
           <div className="flex flex-wrap">
             {task.attachments && task.attachments.length > 0 && (
               <Image
-                src="/i5.jpg"
+                src={`${process.env.NEXT_PUBLIC_API_S3_BUCKET}/i9.jpg`}
                 alt={task.attachments[0].fileName}
                 width={400}
                 height={200}
