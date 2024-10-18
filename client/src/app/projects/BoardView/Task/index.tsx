@@ -58,7 +58,7 @@ const Task = ({ task }: TaskProps) => {
     >
       {task.attachments && task.attachments.length > 0 && (
         <Image
-          src={`/i1.jpg`}
+          src={`${process.env.NEXT_PUBLIC_API_S3_BUCKET}/i9.jpg`}
           alt={task.attachments[0].fileName}
           width={400}
           height={200}
@@ -111,7 +111,7 @@ const Task = ({ task }: TaskProps) => {
             {task.assignee && (
               <Image
                 key={task.assignee.userId}
-                src="/i1.jpg"
+                src={`${process.env.NEXT_PUBLIC_API_S3_BUCKET}/p8.jpeg`}
                 alt={task.assignee.username}
                 width={30}
                 height={30}
@@ -121,7 +121,7 @@ const Task = ({ task }: TaskProps) => {
             {task.author && (
               <Image
                 key={task.author.userId}
-                src="/i2.jpg"
+                src={`${process.env.NEXT_PUBLIC_API_S3_BUCKET}/p8.jpeg`}
                 alt={task.author.username}
                 width={30}
                 height={30}

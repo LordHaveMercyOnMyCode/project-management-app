@@ -33,8 +33,7 @@ const Sidebar = () => {
   const isSidebarCollapsed = useAppSelector(
     (state) => state.global.isSidebarCollapsed,
   );
-  const profilepic =
-    "https://imgs.search.brave.com/ry6KvTiHmjjX7a0CqfC5zcrrn3o4Njaq46zrdyznPXs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvc2Fk/LWJsb25kLWN1dGUt/YW5pbWUtZ2lybC1w/ZnAtaGNiem5leTdi/cGFvZmQxay5qcGc";
+  const profilepic = `${process.env.NEXT_PUBLIC_API_S3_BUCKET}/p8.jpeg`;
 
   const handleSignOut = async () => {
     console.log("sign out");
