@@ -1,13 +1,14 @@
 ## Project Management Application
 
-A application to manage your project, create team, groups, manage tasks and so more - using next.js , tailwind-css, redux toolkit in the front end and node.js, express.js
-prisma and postgresql database at the backend.
+Project-Management-Application is a powerful, intuitive project management tool designed to help teams streamline workflows, enhance collaboration, and stay on top of tasks. Whether you're managing a small team or a large-scale project, our app offers a comprehensive suite of features to keep everyone aligned and productive.
 
-`packages`
+### Tech Stack:
 
-```bash
-npm install @mui/material @emotion/react @emotion/styled @mui/x-data-grid lucide-react numeral date-fns axios recharts react-dnd react-dnd-html5-backend gantt-task-react
-```
+Front-end: Next.js, tailwindcss, typescript, axios, react-dnd, react-redux toolkit, mui materials
+
+Backend: node.js, express.js, typescript, postgresql, prisma orm, aws (EC2, S3, RDS, COGNITO)
+
+`libs`
 
 -   `@mui/material @emotion/react @emotion/styled @mui/x-data-grid` : For ui components
 -   `lucide-react` : For icons
@@ -18,33 +19,9 @@ npm install @mui/material @emotion/react @emotion/styled @mui/x-data-grid lucide
 -   `react-dnd react-dnd-html5-backend` : For complex drag and drop
 -   `gantt-task-react` : Interactive gantt charts
 
-<br>
 
-`dev dependencies`
+### Flow Diagram Backend
+![Flow Diagram](./flow-diagram.png)
 
-```bash
-npm i -D @types/node @types/uuid @types/numeral
-```
-
-`server`
-
-```bash
-npm i express body-parser cors dotenv helmet morgan prisma @prisma/client
-```
-
-```bash
-npm i -D ts-node typescript @types/node
-```
-
-```bash
-npm i -D rimraf concurrently nodemon @types/cors @types/express @types/morgan
-```
-
-// command to fix the autoincrement in postgresql
-
-```sql
-SELECT setval(pg_get_serial_sequence('"[DATA_MODEL_NAME_HERE]"', 'id'), coalesce(max(id)+1, 1), false) FROM "[DATA_MODEL_NAME_HERE]";
-
-
-SELECT setval(pg_get_serial_sequence('"Project"', 'id'), coalesce(max(id)+1, 1), false) FROM "Project";
-```
+### AWS Architecture Backend
+![AWS Architechture](./pm.png)

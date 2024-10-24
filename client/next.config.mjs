@@ -1,18 +1,16 @@
+const hostnames = [
+  "kaii-s3.s3.ap-south-1.amazonaws.com",
+  "ih1.redbubble.net",
+  "encrypted-tbn0.gstatic.com",
+];
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "kaii-s3.s3.ap-south-1.amazonaws.com",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "http",
-        hostname: "**",
-      },
-    ],
+    remotePatterns: hostnames.map((hostname) => ({
+      protocol: "https",
+      hostname,
+    })),
   },
 };
 

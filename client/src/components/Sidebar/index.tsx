@@ -33,7 +33,8 @@ const Sidebar = () => {
   const isSidebarCollapsed = useAppSelector(
     (state) => state.global.isSidebarCollapsed,
   );
-  const profilepic = `${process.env.NEXT_PUBLIC_API_S3_BUCKET}/p8.jpeg`;
+  // const profilepic = `${process.env.NEXT_PUBLIC_API_S3_BUCKET}/p8.jpeg`;
+  const profilepic = `https://ih1.redbubble.net/image.5292131909.9696/st,small,507x507-pad,600x600,f8f8f8.u4.jpg`;
 
   const handleSignOut = async () => {
     console.log("sign out");
