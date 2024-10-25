@@ -8,7 +8,7 @@ import {
   useGetProjectsQuery,
   useGetTasksQuery,
 } from "@/lib/store/state/api";
-import React from "react";
+import React, { useState } from "react";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import {
   Bar,
@@ -25,6 +25,7 @@ import {
 } from "recharts";
 import { dataGridClassNames, dataGridSxStyles } from "@/lib/utils";
 import { useAppSelector } from "@/lib/store/store";
+import ModalNewProject from "../projects/ModalNewProject";
 
 const taskColumns: GridColDef[] = [
   { field: "title", headerName: "Title", width: 200 },
@@ -36,6 +37,8 @@ const taskColumns: GridColDef[] = [
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
 const HomePage = () => {
+  const [isModalNewProjectOpen, setIsModalNewProjectOpen] = useState(false);
+
   const {
     data: tasks,
     isLoading: tasksLoading,
@@ -94,7 +97,21 @@ const HomePage = () => {
   return (
     <>
       <div className="container h-full w-full bg-gray-100 bg-transparent p-8">
-        <Header name="Project Management Dashboard" />
+        <Header
+          name="Project Management Dashboard"
+          buttonComponent={
+            <button
+              className="flex items-center rounded-md bg-blue-primary px-3 py-2 text-white hover:bg-blue-600"
+              onClick={() => setIsModalNewProjectOpen(true)}
+            >
+              Create a new project
+            </button>
+          }
+        />
+        <ModalNewProject
+          isOpen={isModalNewProjectOpen}
+          onClose={() => setIsModalNewProjectOpen(false)}
+        />
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <div className="rounded-lg bg-white p-4 shadow dark:bg-dark-secondary">
             <h3 className="mb-4 text-lg font-semibold dark:text-white">

@@ -64,15 +64,21 @@ const Timeline = () => {
 
       <div className="overflow-hidden rounded-md bg-white shadow dark:bg-dark-secondary dark:text-white">
         <div className="timeline">
-          <Gantt
-            tasks={ganttTasks}
-            {...displayOptions}
-            columnWidth={displayOptions.viewMode === ViewMode.Month ? 150 : 100}
-            listCellWidth="100px"
-            projectBackgroundColor={isDarkMode ? "#101214" : "#1f2937"}
-            projectProgressColor={isDarkMode ? "#1f2937" : "#aeb8c2"}
-            projectProgressSelectedColor={isDarkMode ? "#000" : "#9ba1a6"}
-          />
+          {projects.length > 0 ? (
+            <Gantt
+              tasks={ganttTasks}
+              {...displayOptions}
+              columnWidth={
+                displayOptions.viewMode === ViewMode.Month ? 150 : 100
+              }
+              listCellWidth="100px"
+              projectBackgroundColor={isDarkMode ? "#101214" : "#1f2937"}
+              projectProgressColor={isDarkMode ? "#1f2937" : "#aeb8c2"}
+              projectProgressSelectedColor={isDarkMode ? "#000" : "#9ba1a6"}
+            />
+          ) : (
+            <p>You don&#39;t have any projects yet!</p>
+          )}
         </div>
       </div>
     </div>
