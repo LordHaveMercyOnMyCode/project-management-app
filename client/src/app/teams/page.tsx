@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Header from "@/components/Header";
 import {
   DataGrid,
@@ -33,7 +33,7 @@ const columns: GridColDef[] = [
 
 const Teams = () => {
   // FIXME: #3 Create the modal for create team
-  const [isModalNewTeamOpen, setIsModalNewTeamOpen] = useState<boolean>(false);
+  // const [isModalNewTeamOpen, setIsModalNewTeamOpen] = useState<boolean>(false);
   const { data: teams, isLoading, isError } = useGetTeamsQuery();
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
 
@@ -45,10 +45,7 @@ const Teams = () => {
       <Header
         name="Teams"
         buttonComponent={
-          <button
-            className="flex items-center rounded-md bg-blue-primary px-3 py-2 text-white hover:bg-blue-600"
-            onClick={() => setIsModalNewTeamOpen(true)}
-          >
+          <button className="flex items-center rounded-md bg-blue-primary px-3 py-2 text-white hover:bg-blue-600">
             Create a team
           </button>
         }
